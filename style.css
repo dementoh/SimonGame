@@ -1,0 +1,57 @@
+body
+{
+    background-color: #0f4c75;
+    color: #cbeaed;
+}
+h1{
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+}
+h2{
+    margin-left: 10px;
+    font-family: 'Permanent Marker', cursive;
+
+}
+.top-div
+{
+    margin-left: 36%;
+    margin-top: 50px;
+}
+.simon-button
+{
+    width: 140px;
+    height: 140px;
+    margin: 20px;
+    border-radius: 40px;
+    border: solid 5px;
+    outline: none;
+    border-color: black;
+}
+.yellow
+{
+    background-color: yellow;
+    color: yellow;
+}
+.red
+{
+    background-color: red;
+    color: red;
+}
+.blue
+{
+    background-color: blue;
+    color: blue;
+}
+.green
+{   
+    background-color:green;
+    color: green;
+}
+.pressed {
+    box-shadow: 0 3px 4px 0 #DBEDF3;
+    opacity: 0.5;
+}
+.gameOver
+{
+    background-color: red;
+}
