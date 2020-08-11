@@ -3,7 +3,6 @@ var clickPat=[];
 var gameOver=false;
 var gameLevel=0;
 var score=0;
-
 //Make Sound Func
 function makesSound(key)
 {   
@@ -28,7 +27,20 @@ function makesSound(key)
          break;
    }
 }
-
+//check user browser
+function detectUser()
+{
+   if(navigator.userAgent.match(/Android/i)
+   ||navigator.userAgent.match(/webOS/i)
+   ||navigator.userAgent.match(/iPhone/i)
+   ||navigator.userAgent.match(/iPad/i)
+   ||navigator.userAgent.match(/iPod/i)
+   ||navigator.userAgent.match(/BlackBerry/i)
+   ||navigator.userAgent.match(/Windows Phone/i))
+   {
+      return true;
+   }else return false;
+}
 
 //add Animation
 function buttonAnimation(pressedKey)
@@ -100,7 +112,7 @@ function startGame()
    $("h2").show();
    randomColor();
    buttonBlink(baseArray[gameLevel]);
-   
+   makesSound(baseArray[gameLevel].toString());
 }
 
 //Handle Something 
@@ -140,23 +152,25 @@ function gameOverFunc()
    gameOver=true;
    gameLevel=0;
    baseArray=[];
-   $("h1").html("Your score: "+score+ "<br> Press A to play again.");
+   if(detectUser()!=true)
+   {
+      $("h1").html("Your score: "+score+ "<br> Press A to play again.");
+   }else $("h1").html("Your score: "+score+ "<br> Play again")
    score=0;
 }
 //
-
 $("button").click(function()
-{
-   if(gameOver!=true)
-   {var textKey=this.innerHTML;
-   makesSound(textKey);
-   buttonAnimation(textKey);
-   var keyPut=this.innerHTML;
-   clickPat.push(Number(keyPut));
-   checkAnswer(clickPat.length-1);
-   }
-});
-
+   {
+      if(gameOver!=true)
+      {
+         var textKey=this.innerHTML;
+         makesSound(textKey);
+         buttonAnimation(textKey);
+         var keyPut=this.innerHTML;
+         clickPat.push(Number(keyPut));
+         checkAnswer(clickPat.length-1);
+      }
+   });
 //on
 $(document).keypress(function (e) { 
    if(e.key=="a")
@@ -165,3 +179,17 @@ $(document).keypress(function (e) {
       startGame();
    }
 });
+
+   
+
+if(detectUser()==true)
+{
+   $("h1").html("➡Start⬅");
+   $("button").removeClass("simon-button");
+   $("button").addClass("phoneDetect");
+   $("h1").click(function()
+   {
+      gameOver=false;
+      startGame();
+   })
+}
