@@ -8,19 +8,19 @@ function makesSound(key)
 {   
    switch (key) {
       case "1":
-         var audio=new Audio("/sounds/yellow.mp3");
+         var audio=new Audio(".sounds/yellow.mp3");
          audio.play();
          break;
       case "3":
-         var audio=new Audio("/sounds/red.mp3");
+         var audio=new Audio(".sounds/red.mp3");
          audio.play();
          break;
       case "4":
-         var audio=new Audio("/sounds/green.mp3");
+         var audio=new Audio(".sounds/green.mp3");
          audio.play();
          break;
       case "2":
-         var audio=new Audio("/sounds/blue.mp3");
+         var audio=new Audio(".sounds/blue.mp3");
          audio.play();
          break;
       default:
