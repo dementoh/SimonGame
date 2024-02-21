@@ -68,7 +68,7 @@ function startOver()
     userClickedPattern=[];
     gamePattern=[];
     started=false;
-    scored=0;
+    scored=1;
 }
 
 $(document).on("keydown", function () {
